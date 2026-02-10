@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Heart, Menu, ShoppingCart, UserRound, X } from "lucide-react";
+import { Heart, Menu,  UserRound, X } from "lucide-react";
 import Image from "next/image";
 
 type NavLink = {
@@ -27,8 +27,8 @@ const navLinks: NavLink[] = [
   { name: "Home", href: "/" },
   { name: "All Doctors", href: "/all-doctors" },
   { name: "Dashboard", href: "/admin-dashboard" },
-  { name: "About", href: "/about" },
-  { name: "contact us", href: "/contact-us" },
+  { name: "About us", href: "/about-us" },
+  { name: "Contact us", href: "/contact-us" },
 ];
 
 const NavBar = () => {
@@ -127,7 +127,7 @@ const NavBar = () => {
                           ${
                             isActive
                               ? "bg-primary text-white"
-                              : "text-gray-600 hover:bg-primary hover:text-white"
+                              : "text-gray-600 hover:bg-secondary hover:text-white"
                           }`}
                       >
                         {link.icon}
