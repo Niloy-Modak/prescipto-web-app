@@ -18,7 +18,7 @@ export async function POST(req: Request) {
     const text = await Text.create({ message });
 
     return NextResponse.json({ success: true, data: text }, { status: 201 });
-  } catch (error) {
+  } catch (err) {
     return NextResponse.json({ error: "Failed to save text" }, { status: 500 });
   }
 }
@@ -30,7 +30,7 @@ export async function GET() {
     const texts = await Text.find().sort({ createdAt: -1 });
 
     return NextResponse.json({ success: true, data: texts });
-  } catch (error) {
+  } catch (err) {
     return NextResponse.json({ error: "Failed to fetch text" }, { status: 500 });
   }
 }
