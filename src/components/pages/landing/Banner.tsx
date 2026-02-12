@@ -4,7 +4,7 @@ import React from "react";
 const Banner = () => {
   return (
     <section className="relative w-full py-16 px-6 md:px-12 lg:px-24 flex items-center overflow-hidden">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-4  lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
         <div className="z-10">
           <h1 className="text-2xl md:text-3xl lg:text-4xl  font-bold text-[#333] leading-tight mb-6">
@@ -26,7 +26,7 @@ const Banner = () => {
         </div>
 
         {/* Right Content (Image) */}
-        <div className="relative flex justify-center items-center">
+        <div className="relative flex justify-center md:justify-end items-center ">
 
           {/* Doctor Image */}
           <div className="relative z-10">

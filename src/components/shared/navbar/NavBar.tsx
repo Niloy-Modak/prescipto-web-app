@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Heart, Menu,  UserRound, X } from "lucide-react";
+import { Heart, Menu, UserRound, X } from "lucide-react";
 import Image from "next/image";
 
 type NavLink = {
@@ -162,8 +162,9 @@ const NavBar = () => {
           onClick={() => setIsOpen(false)}
           className="
             fixed inset-0 top-16
-            bg-black/10
-            backdrop-blur-md
+            backdrop-blur-2xl
+           bg-white/60
+            border-b border-white/20
             z-40
           "
         />
