@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const AppointmentSection = () => {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:px-20 py-10 md:relative">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  py-10 md:relative">
       {/* Container with relative positioning to allow image to pop out */}
       <div className="relative bg-primary rounded-lg px-8 md:px-12 lg:px-20 flex flex-col md:flex-row items-center justify-between lg:min-h-113.75">
         {/* Left Content */}

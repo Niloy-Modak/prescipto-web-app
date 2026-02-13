@@ -10,7 +10,7 @@ const MainLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
     <header>
        <NavBar/>
     </header>
-      <main className="min-h-[calc(100vh-484px)] pt-16">{children}</main>
+      <main className="min-h-[calc(100vh-420px)] pt-16">{children}</main>
       <Footer/>
     </>
   );

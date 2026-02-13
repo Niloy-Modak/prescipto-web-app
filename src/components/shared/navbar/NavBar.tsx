@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Heart, Menu, UserRound, X } from "lucide-react";
+import { Clipboard, Menu, UserRound, X } from "lucide-react";
 import Image from "next/image";
 
 type NavLink = {
@@ -19,7 +19,7 @@ type UserCartShopLink = {
 };
 
 const userCartShopLinks: UserCartShopLink[] = [
-  { id: 1, icon: <Heart />, href: "/favorites", name: "Favorites" },
+  { id: 1, icon: <Clipboard />, href: "/appointments", name: "Appointments" },
   { id: 3, icon: <UserRound />, href: "/user", name: "User" },
 ];
 
@@ -113,7 +113,7 @@ const NavBar = () => {
                 })}
               </ul>
             </div>
-
+                {/* User and fav icon */}
             <div>
               <ul className="flex items-center gap-4">
                 {userCartShopLinks.map((link) => {
@@ -149,7 +149,7 @@ const NavBar = () => {
           {/* Medium Devices Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-gray-800"
+            className="lg:hidden text-gray-800 cursor-pointer"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
