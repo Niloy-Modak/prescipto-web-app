@@ -7,7 +7,7 @@ const textSchema = new Schema(
       required: true,
     },
   },
-  { timestamps: true }
+  { timestamps: true } 
 );
 
 export const Text = models.Text || mongoose.model("Text", textSchema);

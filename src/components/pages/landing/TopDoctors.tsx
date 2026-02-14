@@ -19,7 +19,8 @@ const TopDoctors = () => {
               key={doctor.slug}
               name={doctor.name}
               title={doctor.title}
-              profileImage={doctor.profileImage}
+              slug={doctor.slug}
+              doctorImage={doctor.doctorImage}
               specializations={doctor.specializations}
               activeStatus={doctor.activeStatus}
             />

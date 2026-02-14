@@ -1,12 +1,12 @@
 export const topDoctors = [
- {
+  {
     id: "dr-emily-chen-001",
-    slug: "dr-emily-chen",
+    slug: "dr-emily-chen-interventional-cardiology",
     name: "Dr. Emily Chen",
     title: "Board-Certified Cardiologist",
     yearsOfExperience: 15,
-    bio: "Dr. Emily Chen is a board-certified cardiologist with extensive experience in heart disease prevention and treatment.",
-    profileImage: "/doctors/image.png",
+    bio: "Dr. Emily Chen specializes in advanced cardiac procedures and preventive cardiology.",
+    doctorImage: "/doctors/image.png",
     specializations: [
       "Interventional Cardiology",
       "Heart Failure",
@@ -16,166 +16,114 @@ export const topDoctors = [
       name: "Heart & Vascular Institute",
       address: "New York, NY",
     },
-    experience: [
+    availability: [
       {
-        position: "Senior Cardiologist",
-        organization: "NY Presbyterian Hospital",
-        startYear: 2018,
-        endYear: null,
+        date: "2026-02-14",
+        slots: [
+          { time: "08:00", isBooked: false },
+          { time: "09:00", isBooked: true },
+        ],
+      },
+      {
+        date: "2026-02-15",
+        slots: [
+          { time: "11:00", isBooked: false },
+          { time: "12:00", isBooked: false },
+        ],
       },
     ],
-    education: [
-      {
-        degree: "MD - Cardiology",
-        institution: "Johns Hopkins University",
-        startYear: 2006,
-        endYear: 2010,
-      },
-    ],
-    awards: [
-      {
-        title: "Top Doctor Award",
-        year: 2022,
-        description: "Outstanding patient care",
-      },
-    ],
-    availability: {
-      monday: ["08:00 AM", "09:00 AM"],
-      wednesday: ["10:00 AM", "11:00 AM"],
-    },
     fee: 50,
     activeStatus: true,
-    createdAt: "2024-01-01T10:00:00Z",
-    updatedAt: "2024-01-01T10:00:00Z",
   },
 
   {
     id: "dr-james-wilson-002",
-    slug: "dr-james-wilson",
+    slug: "dr-james-wilson-orthopedic-surgeon",
     name: "Dr. James Wilson",
     title: "Orthopedic Surgeon",
-    yearsOfExperience: 12,
-    bio: "Specialist in bone, joint, and sports injury treatments.",
-    profileImage: "/doctors/image.png",
+    yearsOfExperience: 18,
+    bio: "Expert in joint replacement and sports injury management.",
+    doctorImage: "/doctors/image.png",
     specializations: ["Joint Replacement", "Sports Injuries"],
     clinic: {
       name: "Advanced Ortho Care",
-      address: "Los Angeles, CA",
+      address: "Chicago, IL",
     },
-    experience: [
+    availability: [
       {
-        position: "Consultant Orthopedic Surgeon",
-        organization: "LA Medical Center",
-        startYear: 2015,
-        endYear: null,
+        date: "2026-02-16",
+        slots: [
+          { time: "10:00", isBooked: false },
+          { time: "11:00", isBooked: false },
+        ],
       },
     ],
-    education: [
-      {
-        degree: "MS - Orthopedics",
-        institution: "UCLA",
-        startYear: 2008,
-        endYear: 2012,
-      },
-    ],
-    availability: {
-      tuesday: ["09:00 AM", "10:30 AM"],
-      friday: ["02:00 PM", "04:00 PM"],
-    },
-    fee: 45,
+    fee: 60,
     activeStatus: true,
-    createdAt: "2024-01-02T10:00:00Z",
-    updatedAt: "2024-01-02T10:00:00Z",
   },
 
   {
-    id: "dr-sarah-khan-003",
-    slug: "dr-sarah-khan",
-    name: "Dr. Sarah Khan",
-    title: "Dermatologist",
-    yearsOfExperience: 10,
-    bio: "Expert in skin, hair, and cosmetic dermatology.",
-    profileImage: "/doctors/image.png",
-    specializations: ["Acne Treatment", "Cosmetic Dermatology"],
+    id: "dr-sophia-lee-003",
+    slug: "dr-sophia-lee-dermatology",
+    name: "Dr. Sophia Lee",
+    title: "Consultant Dermatologist",
+    yearsOfExperience: 12,
+    bio: "Focused on skin health, cosmetic dermatology, and laser treatments.",
+    doctorImage: "/doctors/image.png",
+    specializations: ["Dermatology", "Cosmetic Treatments"],
     clinic: {
-      name: "Glow Skin Clinic",
-      address: "Chicago, IL",
+      name: "Skin Health Clinic",
+      address: "Los Angeles, CA",
     },
-    experience: [
+    availability: [
       {
-        position: "Senior Dermatologist",
-        organization: "Glow Skin Clinic",
-        startYear: 2017,
-        endYear: null,
+        date: "2026-02-17",
+        slots: [
+          { time: "09:30", isBooked: false },
+          { time: "10:30", isBooked: false },
+        ],
       },
     ],
-    education: [
-      {
-        degree: "MD - Dermatology",
-        institution: "University of Chicago",
-        startYear: 2009,
-        endYear: 2013,
-      },
-    ],
-    availability: {
-      monday: ["11:00 AM", "01:00 PM"],
-      thursday: ["03:00 PM", "05:00 PM"],
-    },
-    fee: 40,
+    fee: 45,
     activeStatus: true,
-    createdAt: "2024-01-03T10:00:00Z",
-    updatedAt: "2024-01-03T10:00:00Z",
   },
 
   {
     id: "dr-michael-brown-004",
-    slug: "dr-michael-brown",
+    slug: "dr-michael-brown-neurology",
     name: "Dr. Michael Brown",
     title: "Neurologist",
-    yearsOfExperience: 18,
-    bio: "Treating neurological disorders with advanced diagnostics.",
-    profileImage: "/doctors/image.png",
-    specializations: ["Stroke Care", "Epilepsy"],
+    yearsOfExperience: 20,
+    bio: "Treats complex neurological disorders with a patient-first approach.",
+    doctorImage: "/doctors/image.png",
+    specializations: ["Neurology", "Stroke Care"],
     clinic: {
-      name: "Neuro Health Center",
+      name: "Brain & Nerve Center",
       address: "Boston, MA",
     },
-    experience: [
+    availability: [
       {
-        position: "Lead Neurologist",
-        organization: "Neuro Health Center",
-        startYear: 2012,
-        endYear: null,
+        date: "2026-02-18",
+        slots: [
+          { time: "14:00", isBooked: false },
+          { time: "15:00", isBooked: true },
+        ],
       },
     ],
-    education: [
-      {
-        degree: "DM - Neurology",
-        institution: "Harvard Medical School",
-        startYear: 2004,
-        endYear: 2008,
-      },
-    ],
-    availability: {
-      wednesday: ["09:00 AM", "11:00 AM"],
-      saturday: ["10:00 AM", "12:00 PM"],
-    },
-    fee: 60,
+    fee: 70,
     activeStatus: true,
-    createdAt: "2024-01-04T10:00:00Z",
-    updatedAt: "2024-01-04T10:00:00Z",
   },
 ];
 
 export const doctors = [
   {
     id: "dr-emily-chen-001",
-    slug: "dr-emily-chen",
+    slug: "dr-emily-chen-interventional-cardiology",
     name: "Dr. Emily Chen",
     title: "Board-Certified Cardiologist",
     yearsOfExperience: 15,
-    bio: "Dr. Emily Chen is a board-certified cardiologist with extensive experience in heart disease prevention and treatment.",
-    profileImage: "/doctors/image.png",
+    bio: "Dr. Emily Chen specializes in advanced cardiac procedures and preventive cardiology.",
+    doctorImage: "/doctors/image.png",
     specializations: [
       "Interventional Cardiology",
       "Heart Failure",
@@ -185,388 +133,257 @@ export const doctors = [
       name: "Heart & Vascular Institute",
       address: "New York, NY",
     },
-    experience: [
+    availability: [
       {
-        position: "Senior Cardiologist",
-        organization: "NY Presbyterian Hospital",
-        startYear: 2018,
-        endYear: null,
+        date: "2026-02-14",
+        slots: [
+          { time: "08:00", isBooked: false },
+          { time: "09:00", isBooked: true },
+        ],
+      },
+      {
+        date: "2026-02-15",
+        slots: [
+          { time: "11:00", isBooked: false },
+          { time: "12:00", isBooked: false },
+        ],
       },
     ],
-    education: [
-      {
-        degree: "MD - Cardiology",
-        institution: "Johns Hopkins University",
-        startYear: 2006,
-        endYear: 2010,
-      },
-    ],
-    awards: [
-      {
-        title: "Top Doctor Award",
-        year: 2022,
-        description: "Outstanding patient care",
-      },
-    ],
-    availability: {
-      monday: ["08:00 AM", "09:00 AM"],
-      wednesday: ["10:00 AM", "11:00 AM"],
-    },
     fee: 50,
     activeStatus: true,
-    createdAt: "2024-01-01T10:00:00Z",
-    updatedAt: "2024-01-01T10:00:00Z",
   },
 
   {
     id: "dr-james-wilson-002",
-    slug: "dr-james-wilson",
+    slug: "dr-james-wilson-orthopedic-surgeon",
     name: "Dr. James Wilson",
     title: "Orthopedic Surgeon",
-    yearsOfExperience: 12,
-    bio: "Specialist in bone, joint, and sports injury treatments.",
-    profileImage: "/doctors/image.png",
+    yearsOfExperience: 18,
+    bio: "Expert in joint replacement and sports injury management.",
+    doctorImage: "/doctors/image.png",
     specializations: ["Joint Replacement", "Sports Injuries"],
     clinic: {
       name: "Advanced Ortho Care",
-      address: "Los Angeles, CA",
+      address: "Chicago, IL",
     },
-    experience: [
+    availability: [
       {
-        position: "Consultant Orthopedic Surgeon",
-        organization: "LA Medical Center",
-        startYear: 2015,
-        endYear: null,
+        date: "2026-02-16",
+        slots: [
+          { time: "10:00", isBooked: false },
+          { time: "11:00", isBooked: false },
+        ],
       },
     ],
-    education: [
-      {
-        degree: "MS - Orthopedics",
-        institution: "UCLA",
-        startYear: 2008,
-        endYear: 2012,
-      },
-    ],
-    availability: {
-      tuesday: ["09:00 AM", "10:30 AM"],
-      friday: ["02:00 PM", "04:00 PM"],
-    },
-    fee: 45,
+    fee: 60,
     activeStatus: true,
-    createdAt: "2024-01-02T10:00:00Z",
-    updatedAt: "2024-01-02T10:00:00Z",
   },
 
   {
-    id: "dr-sarah-khan-003",
-    slug: "dr-sarah-khan",
-    name: "Dr. Sarah Khan",
-    title: "Dermatologist",
-    yearsOfExperience: 10,
-    bio: "Expert in skin, hair, and cosmetic dermatology.",
-    profileImage: "/doctors/image.png",
-    specializations: ["Acne Treatment", "Cosmetic Dermatology"],
+    id: "dr-sophia-lee-003",
+    slug: "dr-sophia-lee-dermatology",
+    name: "Dr. Sophia Lee",
+    title: "Consultant Dermatologist",
+    yearsOfExperience: 12,
+    bio: "Focused on skin health, cosmetic dermatology, and laser treatments.",
+    doctorImage: "/doctors/image.png",
+    specializations: ["Dermatology", "Cosmetic Treatments"],
     clinic: {
-      name: "Glow Skin Clinic",
-      address: "Chicago, IL",
+      name: "Skin Health Clinic",
+      address: "Los Angeles, CA",
     },
-    experience: [
+    availability: [
       {
-        position: "Senior Dermatologist",
-        organization: "Glow Skin Clinic",
-        startYear: 2017,
-        endYear: null,
+        date: "2026-02-17",
+        slots: [
+          { time: "09:30", isBooked: false },
+          { time: "10:30", isBooked: false },
+        ],
       },
     ],
-    education: [
-      {
-        degree: "MD - Dermatology",
-        institution: "University of Chicago",
-        startYear: 2009,
-        endYear: 2013,
-      },
-    ],
-    availability: {
-      monday: ["11:00 AM", "01:00 PM"],
-      thursday: ["03:00 PM", "05:00 PM"],
-    },
-    fee: 40,
+    fee: 45,
     activeStatus: true,
-    createdAt: "2024-01-03T10:00:00Z",
-    updatedAt: "2024-01-03T10:00:00Z",
   },
 
   {
     id: "dr-michael-brown-004",
-    slug: "dr-michael-brown",
+    slug: "dr-michael-brown-neurology",
     name: "Dr. Michael Brown",
     title: "Neurologist",
-    yearsOfExperience: 18,
-    bio: "Treating neurological disorders with advanced diagnostics.",
-    profileImage: "/doctors/image.png",
-    specializations: ["Stroke Care", "Epilepsy"],
+    yearsOfExperience: 20,
+    bio: "Treats complex neurological disorders with a patient-first approach.",
+    doctorImage: "/doctors/image.png",
+    specializations: ["Neurology", "Stroke Care"],
     clinic: {
-      name: "Neuro Health Center",
+      name: "Brain & Nerve Center",
       address: "Boston, MA",
     },
-    experience: [
+    availability: [
       {
-        position: "Lead Neurologist",
-        organization: "Neuro Health Center",
-        startYear: 2012,
-        endYear: null,
+        date: "2026-02-18",
+        slots: [
+          { time: "14:00", isBooked: false },
+          { time: "15:00", isBooked: true },
+        ],
       },
     ],
-    education: [
-      {
-        degree: "DM - Neurology",
-        institution: "Harvard Medical School",
-        startYear: 2004,
-        endYear: 2008,
-      },
-    ],
-    availability: {
-      wednesday: ["09:00 AM", "11:00 AM"],
-      saturday: ["10:00 AM", "12:00 PM"],
-    },
-    fee: 60,
+    fee: 70,
     activeStatus: true,
-    createdAt: "2024-01-04T10:00:00Z",
-    updatedAt: "2024-01-04T10:00:00Z",
   },
 
   {
-    id: "dr-linda-rodriguez-005",
-    slug: "dr-linda-rodriguez",
-    name: "Dr. Linda Rodriguez",
-    title: "Gynecologist",
-    yearsOfExperience: 14,
-    bio: "Focused on women’s health and prenatal care.",
-    profileImage: "/doctors/image.png",
-    specializations: ["Prenatal Care", "Women’s Health"],
-    clinic: {
-      name: "Women Care Hospital",
-      address: "Miami, FL",
-    },
-    experience: [
-      {
-        position: "Senior Gynecologist",
-        organization: "Women Care Hospital",
-        startYear: 2016,
-        endYear: null,
-      },
-    ],
-    education: [
-      {
-        degree: "MD - Gynecology",
-        institution: "University of Miami",
-        startYear: 2006,
-        endYear: 2010,
-      },
-    ],
-    availability: {
-      monday: ["10:00 AM", "12:00 PM"],
-      friday: ["01:00 PM", "03:00 PM"],
-    },
-    fee: 35,
-    activeStatus: true,
-    createdAt: "2024-01-05T10:00:00Z",
-    updatedAt: "2024-01-05T10:00:00Z",
-  },
-
-  {
-    id: "dr-ahmed-hossain-006",
-    slug: "dr-ahmed-hossain",
-    name: "Dr. Ahmed Hossain",
-    title: "General Physician",
-    yearsOfExperience: 9,
-    bio: "Providing comprehensive primary healthcare services.",
-    profileImage: "/doctors/image.png",
-    specializations: ["General Medicine", "Diabetes Care"],
-    clinic: {
-      name: "City Health Clinic",
-      address: "Dhaka, Bangladesh",
-    },
-    experience: [
-      {
-        position: "General Physician",
-        organization: "City Health Clinic",
-        startYear: 2019,
-        endYear: null,
-      },
-    ],
-    education: [
-      {
-        degree: "MBBS",
-        institution: "Dhaka Medical College",
-        startYear: 2008,
-        endYear: 2013,
-      },
-    ],
-    availability: {
-      sunday: ["09:00 AM", "12:00 PM"],
-      tuesday: ["04:00 PM", "06:00 PM"],
-    },
-    fee: 20,
-    activeStatus: true,
-    createdAt: "2024-01-06T10:00:00Z",
-    updatedAt: "2024-01-06T10:00:00Z",
-  },
-
-  {
-    id: "dr-robert-lee-007",
-    slug: "dr-robert-lee",
-    name: "Dr. Robert Lee",
-    title: "Pediatrician",
-    yearsOfExperience: 11,
-    bio: "Dedicated to child health and development.",
-    profileImage: "/doctors/image.png",
-    specializations: ["Child Care", "Vaccination"],
+    id: "dr-olivia-martin-005",
+    slug: "dr-olivia-martin-pediatrics",
+    name: "Dr. Olivia Martin",
+    title: "Pediatric Specialist",
+    yearsOfExperience: 10,
+    bio: "Dedicated to comprehensive healthcare for infants and children.",
+    doctorImage: "/doctors/image.png",
+    specializations: ["Pediatrics", "Child Nutrition"],
     clinic: {
       name: "Happy Kids Clinic",
-      address: "San Francisco, CA",
+      address: "Austin, TX",
     },
-    experience: [
+    availability: [
       {
-        position: "Senior Pediatrician",
-        organization: "Happy Kids Clinic",
-        startYear: 2016,
-        endYear: null,
+        date: "2026-02-19",
+        slots: [
+          { time: "09:00", isBooked: false },
+          { time: "10:00", isBooked: false },
+        ],
       },
     ],
-    education: [
-      {
-        degree: "MD - Pediatrics",
-        institution: "Stanford University",
-        startYear: 2007,
-        endYear: 2011,
-      },
-    ],
-    availability: {
-      monday: ["09:00 AM", "11:00 AM"],
-      thursday: ["02:00 PM", "04:00 PM"],
-    },
-    fee: 30,
+    fee: 40,
     activeStatus: true,
-    createdAt: "2024-01-07T10:00:00Z",
-    updatedAt: "2024-01-07T10:00:00Z",
   },
 
   {
-    id: "dr-nina-patel-008",
-    slug: "dr-nina-patel",
-    name: "Dr. Nina Patel",
+    id: "dr-david-kim-006",
+    slug: "dr-david-kim-endocrinology",
+    name: "Dr. David Kim",
     title: "Endocrinologist",
-    yearsOfExperience: 13,
-    bio: "Specialist in hormonal disorders and diabetes management.",
-    profileImage: "/doctors/image.png",
-    specializations: ["Diabetes", "Thyroid Disorders"],
+    yearsOfExperience: 14,
+    bio: "Specialist in diabetes, thyroid, and metabolic disorders.",
+    doctorImage: "/doctors/image.png",
+    specializations: ["Diabetes Care", "Thyroid Disorders"],
     clinic: {
-      name: "Endocrine Care Center",
-      address: "Houston, TX",
+      name: "Metabolic Health Center",
+      address: "San Jose, CA",
     },
-    experience: [
+    availability: [
       {
-        position: "Consultant Endocrinologist",
-        organization: "Endocrine Care Center",
-        startYear: 2014,
-        endYear: null,
+        date: "2026-02-20",
+        slots: [
+          { time: "13:00", isBooked: false },
+          { time: "14:00", isBooked: false },
+        ],
       },
     ],
-    education: [
-      {
-        degree: "DM - Endocrinology",
-        institution: "Baylor College of Medicine",
-        startYear: 2006,
-        endYear: 2010,
-      },
-    ],
-    availability: {
-      wednesday: ["10:00 AM", "01:00 PM"],
-      saturday: ["09:00 AM", "11:00 AM"],
-    },
     fee: 55,
     activeStatus: true,
-    createdAt: "2024-01-08T10:00:00Z",
-    updatedAt: "2024-01-08T10:00:00Z",
   },
 
   {
-    id: "dr-david-smith-009",
-    slug: "dr-david-smith",
-    name: "Dr. David Smith",
-    title: "ENT Specialist",
+    id: "dr-natalie-ross-007",
+    slug: "dr-natalie-ross-psychiatry",
+    name: "Dr. Natalie Ross",
+    title: "Consultant Psychiatrist",
     yearsOfExperience: 16,
-    bio: "Expert in ear, nose, and throat disorders.",
-    profileImage: "/doctors/image.png",
-    specializations: ["Hearing Loss", "Sinus Treatment"],
-    clinic: {
-      name: "ENT Care Center",
-      address: "Seattle, WA",
-    },
-    experience: [
-      {
-        position: "ENT Specialist",
-        organization: "ENT Care Center",
-        startYear: 2011,
-        endYear: null,
-      },
-    ],
-    education: [
-      {
-        degree: "MS - ENT",
-        institution: "University of Washington",
-        startYear: 2003,
-        endYear: 2007,
-      },
-    ],
-    availability: {
-      tuesday: ["09:00 AM", "11:00 AM"],
-      friday: ["01:00 PM", "03:00 PM"],
-    },
-    fee: 42,
-    activeStatus: true,
-    createdAt: "2024-01-09T10:00:00Z",
-    updatedAt: "2024-01-09T10:00:00Z",
-  },
-
-  {
-    id: "dr-meera-sharma-010",
-    slug: "dr-meera-sharma",
-    name: "Dr. Meera Sharma",
-    title: "Psychiatrist",
-    yearsOfExperience: 17,
-    bio: "Helping patients with mental health and emotional wellbeing.",
-    profileImage: "/doctors/image.png",
-    specializations: ["Depression", "Anxiety Disorders"],
+    bio: "Helping patients manage mental health with empathy and care.",
+    doctorImage: "/doctors/image.png",
+    specializations: ["Psychiatry", "Anxiety & Depression"],
     clinic: {
       name: "Mind Wellness Center",
-      address: "Delhi, India",
+      address: "Seattle, WA",
     },
-    experience: [
+    availability: [
       {
-        position: "Senior Psychiatrist",
-        organization: "Mind Wellness Center",
-        startYear: 2010,
-        endYear: null,
+        date: "2026-02-21",
+        slots: [
+          { time: "16:00", isBooked: false },
+          { time: "17:00", isBooked: false },
+        ],
       },
     ],
-    education: [
-      {
-        degree: "MD - Psychiatry",
-        institution: "AIIMS Delhi",
-        startYear: 2001,
-        endYear: 2005,
-      },
-    ],
-    availability: {
-      monday: ["04:00 PM", "06:00 PM"],
-      saturday: ["10:00 AM", "12:00 PM"],
-    },
-    fee: 48,
+    fee: 65,
     activeStatus: true,
-    createdAt: "2024-01-10T10:00:00Z",
-    updatedAt: "2024-01-10T10:00:00Z",
+  },
+
+  {
+    id: "dr-ethan-patel-008",
+    slug: "dr-ethan-patel-gastroenterology",
+    name: "Dr. Ethan Patel",
+    title: "Gastroenterologist",
+    yearsOfExperience: 13,
+    bio: "Expert in digestive health and liver disorders.",
+    doctorImage: "/doctors/image.png",
+    specializations: ["Gastroenterology", "Liver Disease"],
+    clinic: {
+      name: "Digestive Care Clinic",
+      address: "Houston, TX",
+    },
+    availability: [
+      {
+        date: "2026-02-22",
+        slots: [
+          { time: "11:00", isBooked: false },
+          { time: "12:00", isBooked: true },
+        ],
+      },
+    ],
+    fee: 58,
+    activeStatus: true,
+  },
+
+  {
+    id: "dr-lucas-garcia-009",
+    slug: "dr-lucas-garcia-pulmonology",
+    name: "Dr. Lucas Garcia",
+    title: "Pulmonologist",
+    yearsOfExperience: 17,
+    bio: "Specializes in respiratory diseases and sleep disorders.",
+    doctorImage: "/doctors/image.png",
+    specializations: ["Pulmonology", "Sleep Medicine"],
+    clinic: {
+      name: "Respiratory Health Center",
+      address: "Denver, CO",
+    },
+    availability: [
+      {
+        date: "2026-02-23",
+        slots: [
+          { time: "10:00", isBooked: false },
+          { time: "11:00", isBooked: false },
+        ],
+      },
+    ],
+    fee: 60,
+    activeStatus: true,
+  },
+
+  {
+    id: "dr-amelia-johnson-010",
+    slug: "dr-amelia-johnson-gynecology",
+    name: "Dr. Amelia Johnson",
+    title: "Gynecologist & Obstetrician",
+    yearsOfExperience: 19,
+    bio: "Providing comprehensive women’s healthcare and maternity services.",
+    doctorImage: "/doctors/image.png",
+    specializations: ["Gynecology", "Obstetrics"],
+    clinic: {
+      name: "Women Care Hospital",
+      address: "San Diego, CA",
+    },
+    availability: [
+      {
+        date: "2026-02-24",
+        slots: [
+          { time: "09:00", isBooked: false },
+          { time: "10:30", isBooked: false },
+        ],
+      },
+    ],
+    fee: 62,
+    activeStatus: true,
   },
 ];
-

@@ -143,7 +143,7 @@ const SignUpForm = () => {
           <input
             required
             type="email"
-            placeholder="Enter your email (lowercase only)"
+            placeholder="Enter your email"
             className="w-full px-5 py-3 rounded-2xl bg-white/40 border border-white/60 focus:ring-2 focus:ring-primary/20 outline-none"
             onChange={(e) =>
               setFormData({ ...formData, email: e.target.value })

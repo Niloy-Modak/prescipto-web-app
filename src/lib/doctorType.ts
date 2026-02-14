@@ -5,7 +5,9 @@ export type DoctorType = {
   title: string;
   yearsOfExperience: number;
   bio: string;
-  profileImage: string;
+
+  // 🔄 renamed to match your data
+  doctorImage: string;
 
   specializations: string[];
 
@@ -14,14 +16,16 @@ export type DoctorType = {
     address: string;
   };
 
-  experience: {
+  // (optional – you can remove if not used yet)
+  experience?: {
     position: string;
     organization: string;
     startYear: number;
     endYear: number | null;
   }[];
 
-  education: {
+  // (optional – you can remove if not used yet)
+  education?: {
     degree: string;
     institution: string;
     startYear: number;
@@ -34,13 +38,15 @@ export type DoctorType = {
     description?: string;
   }[];
 
+  // ✅ FIXED availability structure
   availability: {
-    [day: string]: string[];
-  };
+    date: string; // "YYYY-MM-DD"
+    slots: {
+      time: string; // "HH:mm"
+      isBooked: boolean;
+    }[];
+  }[];
 
   fee: number;
-
-  activeStatus: boolean; // ✅ changed
-  createdAt: string;
-  updatedAt: string;
+  activeStatus: boolean;
 };

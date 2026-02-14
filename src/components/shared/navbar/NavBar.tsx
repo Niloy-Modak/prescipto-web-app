@@ -1,9 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef, ReactNode } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Clipboard, Menu, UserRound, X } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Menu,  X } from "lucide-react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import NavbarUserLink from "./NavbarUserLinks";
