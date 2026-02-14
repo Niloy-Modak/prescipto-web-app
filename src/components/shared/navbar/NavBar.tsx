@@ -5,36 +5,16 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Clipboard, Menu, UserRound, X } from "lucide-react";
 import Image from "next/image";
-
-type NavLink = {
-  name: string;
-  href: string;
-};
-
-type UserCartShopLink = {
-  id: number;
-  icon: ReactNode;
-  name: string;
-  href: string;
-};
-
-const userCartShopLinks: UserCartShopLink[] = [
-  { id: 1, icon: <Clipboard />, href: "/appointments", name: "Appointments" },
-  { id: 3, icon: <UserRound />, href: "/user", name: "User" },
-];
-
-const navLinks: NavLink[] = [
-  { name: "Home", href: "/" },
-  { name: "All Doctors", href: "/all-doctors" },
-  { name: "Dashboard", href: "/admin-dashboard" },
-  { name: "About us", href: "/about-us" },
-  { name: "Contact us", href: "/contact-us" },
-];
+import { useSession } from "next-auth/react";
+import NavbarUserLink from "./NavbarUserLinks";
+import MobileUserLinks from "./MobileUserLinks";
 
 const NavBar = () => {
+  const { data: session } = useSession();
+  console.log(session);
+
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
-  const pathname = usePathname();
 
   useEffect(() => {
     const handleResize = () => {
@@ -77,73 +57,9 @@ const NavBar = () => {
             </span>
           </div>
 
-          <div className=" hidden lg:flex items-center gap-8">
-            <div>
-              {/* Desktop Nav */}
-              <ul className="hidden lg:flex flex-1 justify-center gap-8">
-                {navLinks.map((link) => {
-                  const isActive = pathname === link.href;
-
-                  return (
-                    <li key={link.name}>
-                      <Link
-                        href={link.href}
-                        className={`
-                         relative font-medium cursor-pointer
-                         transition-colors duration-300
-
-                         ${isActive ? "text-primary" : "text-gray-600 hover:text-secondary"}
-
-                         after:content-['']
-                         after:absolute after:left-0 after:-bottom-1
-                         after:h-0.5
-                         after:transition-all after:duration-300 after:ease-out
-
-                         ${
-                           isActive
-                             ? "after:w-full after:bg-primary"
-                             : "after:w-0 after:bg-secondary hover:after:w-full"
-                         }
-                        `}
-                      >
-                        {link.name}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-                {/* User and fav icon */}
-            <div>
-              <ul className="flex items-center gap-4">
-                {userCartShopLinks.map((link) => {
-                  const isActive = pathname === link.href;
-
-                  return (
-                    <li key={link.id}>
-                      <Link
-                        href={link.href}
-                        className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200
-                          ${
-                            isActive
-                              ? "bg-primary text-white"
-                              : "text-gray-600 hover:bg-secondary hover:text-white"
-                          }`}
-                      >
-                        {link.icon}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-
-            {/* Desktop Login */}
-            <Link href={"sign-in"}>
-              <button className=" px-4 py-2 rounded-full bg-primary/90 text-white backdrop-blur-md hover:bg-primary text-sm font-medium cursor-pointer transition ">
-                Sign In
-              </button>
-            </Link>
+          <div className=" ">
+            {/* All Nav Links For Desktop */}
+            <NavbarUserLink />
           </div>
 
           {/* Medium Devices Toggle */}
@@ -184,67 +100,8 @@ const NavBar = () => {
           z-50
         `}
       >
-        <div className="p-5 ">
-          <div className="space-y-3">
-            {/* Medium Devices Nav Links */}
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className={`
-                  block px-4 py-3 rounded-2xl text-base font-medium transition
-                  ${
-                    isActive
-                      ? "bg-primary text-white shadow"
-                      : "text-gray-800 hover:bg-primary/10"
-                  }
-                `}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-
-            {/* Medium Devices user cart and favorite nav links */}
-            {userCartShopLinks.map((link) => {
-              const isActive = pathname === link.href;
-
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className={`
-                   px-4 py-3 rounded-2xl text-base font-medium transition flex  items-center gap-4
-                  ${
-                    isActive
-                      ? "bg-primary text-white shadow"
-                      : "text-gray-800 hover:bg-primary/10"
-                  }
-                `}
-                >
-                  {link.icon} {link.name}
-                </Link>
-              );
-            })}
-          </div>
-          <Link href={"sign-in"}>
-            <button
-              onClick={() => setIsOpen(false)}
-              className="
-              w-full mt-6 px-4 py-3 rounded-full
-              bg-primary text-white font-medium
-              shadow
-            "
-            >
-              Login
-            </button>
-          </Link>
-        </div>
+        {/* All Mobile Links */}
+        <MobileUserLinks setIsOpen={setIsOpen} />
       </div>
     </nav>
   );

@@ -4,7 +4,7 @@ import SingUpForm from '@/components/pages/signUp/SingUpForm';
 const SignUpPage = () => {
     return (
         <section>
-            <SingUpForm/>
+            <SingUpForm/> 
         </section>
     );
 };
