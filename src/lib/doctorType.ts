@@ -1,52 +1,48 @@
 export type DoctorType = {
-  id: string;
+  _id: string; // MongoDB uses _id by default
   slug: string;
   name: string;
-  title: string;
-  yearsOfExperience: number;
-  bio: string;
-
-  // 🔄 renamed to match your data
-  doctorImage: string;
-
-  specializations: string[];
+  title?: string; // Optional in schema
+  yearsOfExperience?: number; // Optional in schema
+  bio?: string;
+  doctorImage: string; // Required
+  specializations: string[]; // Required (min 1)
 
   clinic: {
     name: string;
     address: string;
   };
 
-  // (optional – you can remove if not used yet)
-  experience?: {
-    position: string;
-    organization: string;
-    startYear: number;
-    endYear: number | null;
-  }[];
-
-  // (optional – you can remove if not used yet)
-  education?: {
+  // Renamed to match schema 'education'
+  education: {
     degree: string;
-    institution: string;
+    institute: string; // Changed from institution
     startYear: number;
     endYear: number;
   }[];
 
-  awards?: {
-    title: string;
-    year: number;
-    description?: string;
+  // Matches schema 'workExperience'
+  workExperience: {
+    position: string;
+    workPlace: string; // Changed from organization
+    startYear: number;
+    endYear: number | null; // null = Present
   }[];
 
-  // ✅ FIXED availability structure
+  // Matches schema 'awards' (Array of strings)
+  awards: string[];
+
+  // Matches schema 'availability'
   availability: {
-    date: string; // "YYYY-MM-DD"
+    date: string;
     slots: {
-      time: string; // "HH:mm"
+      time: string;
       isBooked: boolean;
     }[];
   }[];
 
   fee: number;
   activeStatus: boolean;
+  createdAt?: string;
+  updatedAt?: string;
 };

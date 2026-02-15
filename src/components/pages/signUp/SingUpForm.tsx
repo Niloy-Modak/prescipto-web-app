@@ -194,7 +194,7 @@ const SignUpForm = () => {
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-3 bg-primary hover:bg-[#005e63] text-white font-bold rounded-2xl shadow-lg disabled:opacity-60"
+          className="w-full py-3 bg-primary hover:bg-primary-hover cursor-pointer text-white font-bold rounded-2xl shadow-lg disabled:opacity-60"
         >
           {loading ? "Creating account..." : "Sign Up"}
         </button>

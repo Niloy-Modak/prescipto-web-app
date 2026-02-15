@@ -3,13 +3,11 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu,  X } from "lucide-react";
 import Image from "next/image";
-import { useSession } from "next-auth/react";
 import NavbarUserLink from "./NavbarUserLinks";
 import MobileUserLinks from "./MobileUserLinks";
 
 const NavBar = () => {
-  const { data: session } = useSession();
-  console.log(session);
+ 
 
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
