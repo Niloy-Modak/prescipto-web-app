@@ -14,8 +14,8 @@ import { usePathname } from "next/navigation";
 
 const links = [
   {
-    name: "Admin Dashboard",
-    path: "/admin-dashboard",
+    name: "Appointments",
+    path: "/appointments-list",
     icon: <LayoutDashboard size={20} />,
   },
   {
@@ -25,7 +25,7 @@ const links = [
   },
   {
     name: "My Added Doctors info",
-    path: "/my-added-doctors",
+    path: "/added-doctors",
     icon: <ClipboardList size={20} />,
   },
   {
@@ -57,7 +57,7 @@ const Sidebar: React.FC = () => {
       >
         {/* Header */}
         <div className="flex items-center justify-between p-4 h-[72px] border-b border-gray-200">
-          <h2 className="text-xl font-bold text-primary">CMS Dashboard</h2>
+          <h2 className="text-xl font-bold text-primary">Admin Dashboard</h2>
           <button className="md:hidden" onClick={() => setIsOpen(false)}>
             <X size={24} />
           </button>

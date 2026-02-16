@@ -1,9 +1,10 @@
-// src/app/api/add-doctor/route.ts
 import { NextRequest, NextResponse } from "next/server";
+import { getServerSession } from "next-auth";
 import connectDB from "@/lib/mongodb";
 import Doctor from "@/database/doctor.model";
 import { v2 as cloudinary } from "cloudinary";
 import { revalidateTag } from "next/cache";
+import { authOptions } from "@/lib/auth";
 
 // Cloudinary config
 cloudinary.config({
@@ -13,6 +14,21 @@ cloudinary.config({
 
 export async function POST(req: NextRequest) {
   try {
+    // ===========================
+    // AUTHORIZATION (ADMIN ONLY)
+    // ===========================
+    const session = await getServerSession(authOptions);
+
+    if (!session || session.user?.role !== "admin") {
+      return NextResponse.json(
+        { message: "Unauthorized - Admin access only" },
+        { status: 403 },
+      );
+    }
+
+    // ===========================
+    // 1️ Connect DB
+    // ===========================
     await connectDB();
     const body = await req.json();
 
@@ -26,22 +42,15 @@ export async function POST(req: NextRequest) {
     } = body;
 
     // ===========================
-    // 1️⃣ Validate required fields
+    // 2️ Validate required fields
     // ===========================
     const missingFields: string[] = [];
-    if (!name || name.trim() === "") missingFields.push("Doctor name");
-    if (
-      !specializations ||
-      !Array.isArray(specializations) ||
-      specializations.length === 0
-    )
+    if (!name?.trim()) missingFields.push("Doctor name");
+    if (!Array.isArray(specializations) || specializations.length === 0)
       missingFields.push("Specializations");
-    if (!doctorImage || doctorImage.trim() === "")
-      missingFields.push("Doctor image");
-    if (!clinic.name || clinic.name.trim() === "")
-      missingFields.push("Clinic name");
-    if (!clinic.address || clinic.address.trim() === "")
-      missingFields.push("Clinic address");
+    if (!doctorImage?.trim()) missingFields.push("Doctor image");
+    if (!clinic.name?.trim()) missingFields.push("Clinic name");
+    if (!clinic.address?.trim()) missingFields.push("Clinic address");
 
     if (missingFields.length > 0) {
       return NextResponse.json(
@@ -54,72 +63,47 @@ export async function POST(req: NextRequest) {
     }
 
     // ===========================
-    // 2️⃣ Upload image to Cloudinary
+    // 3️ Upload image to Cloudinary
     // ===========================
-    let imageUrl = "";
-    try {
-      const uploadRes = await cloudinary.uploader.upload(doctorImage, {
-        folder: "doctors_list",
-      });
-      imageUrl = uploadRes.secure_url;
-    } catch (error) {
-      console.error("Cloudinary Upload Error:", error);
-      return NextResponse.json(
-        { message: "Image upload failed - Please try again" },
-        { status: 500 },
-      );
-    }
+    const uploadRes = await cloudinary.uploader.upload(doctorImage, {
+      folder: "doctors_list",
+    });
 
     // ===========================
-    // 3️⃣ Generate slug & save doctor
+    // 4️ Generate slug & save doctor
     // ===========================
-    const slugBase = name.toLowerCase().trim().replace(/\s+/g, "-");
-    let slug = `${slugBase}-${Date.now()}`;
+    const slug = `${name.toLowerCase().replace(/\s+/g, "-")}-${Date.now()}`;
 
     const newDoctor = await Doctor.create({
       ...rest,
       name,
       title,
       specializations,
-      doctorImage: imageUrl,
+      doctorImage: uploadRes.secure_url,
       slug,
       clinic,
       activeStatus: true,
+      createdBy: session.user.email, // 🔥 audit trail (optional)
     });
 
     // ===========================
-    // 4️⃣ Revalidate tags (Next.js 16)
+    // 5️ Revalidate cache
     // ===========================
-    revalidateTag("doctors"); // main doctors list
-    revalidateTag("featured-doctors"); // homepage sections
+    revalidateTag("doctors");
+    revalidateTag("top-doctors");
     specializations.forEach((spec: string) =>
       revalidateTag(`specialization-${spec.toLowerCase()}`),
     );
 
-    // ===========================
-    // 5️⃣ Return success with header
-    // ===========================
     return NextResponse.json(
       {
         message: "Doctor created successfully",
         doctor: newDoctor,
-        revalidated: true,
       },
-      {
-        status: 201,
-        headers: { "x-nextjs-revalidate-tag": "doctors" }, // triggers cache refresh
-      },
+      { status: 201 },
     );
   } catch (error: any) {
     console.error("POST /api/add-doctor Error:", error);
-
-    if (error.name === "ValidationError") {
-      const missingFields = Object.keys(error.errors);
-      return NextResponse.json(
-        { message: `Validation failed - Missing: ${missingFields.join(", ")}` },
-        { status: 400 },
-      );
-    }
 
     return NextResponse.json(
       { message: "Server error - Please try again later" },

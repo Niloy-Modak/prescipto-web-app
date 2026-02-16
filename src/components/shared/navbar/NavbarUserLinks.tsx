@@ -20,7 +20,7 @@ const NavbarUserLink = () => {
   ];
 
   if (session?.user?.role === "admin") {
-    navLinks.splice(2, 0, { name: "Dashboard", href: "/admin-dashboard" });
+    navLinks.splice(2, 0, { name: "Dashboard", href: "/appointments-list" });
   }
 
   const handleSignOut = async () => {
@@ -65,7 +65,7 @@ const NavbarUserLink = () => {
             <Clipboard />
           </Link>
 
-          <Link
+          {/* <Link
             href="/user"
             className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200
               ${pathname === "/user" ? "bg-primary text-white" : "text-gray-600 hover:bg-secondary hover:text-white"}`}
@@ -81,7 +81,7 @@ const NavbarUserLink = () => {
             ) : (
               <UserRound />
             )}
-          </Link>
+          </Link> */}
 
           <button
             onClick={handleSignOut}

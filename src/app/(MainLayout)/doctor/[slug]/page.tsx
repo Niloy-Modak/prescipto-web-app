@@ -122,7 +122,7 @@ const DoctorDetailPage = async ({ params }: PageProps) => {
             </div>
           </div>
 
-          <BookingSection availability={doctor.availability} />
+          <BookingSection doctorName={doctor.name} slug={doctor.slug} availability={doctor.availability} />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Work Experience */}

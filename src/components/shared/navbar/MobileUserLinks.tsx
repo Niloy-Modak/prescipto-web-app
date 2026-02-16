@@ -22,7 +22,7 @@ const MobileUserLinks = ({ setIsOpen }: MobileUserLinksProps) => {
   ];
 
   if (session?.user?.role === "admin")
-    navLinks.splice(2, 0, { name: "Dashboard", href: "/admin-dashboard" });
+    navLinks.splice(2, 0, { name: "Dashboard", href: "/appointments-list" });
 
   const handleSignOut = async () => {
     const result = await Swal.fire({
@@ -61,7 +61,7 @@ const MobileUserLinks = ({ setIsOpen }: MobileUserLinksProps) => {
             <Clipboard /> Appointments
           </Link>
 
-          <Link
+          {/* <Link
             href="/user"
             onClick={() => setIsOpen(false)}
             className={`px-4 py-3 rounded-2xl text-base font-medium transition flex items-center gap-3
@@ -79,7 +79,7 @@ const MobileUserLinks = ({ setIsOpen }: MobileUserLinksProps) => {
               <UserRound />
             )}
             <span>{session.user.name}</span>
-          </Link>
+          </Link> */}
 
           <button
             onClick={handleSignOut}
