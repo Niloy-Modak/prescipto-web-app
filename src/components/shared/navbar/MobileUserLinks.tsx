@@ -18,7 +18,7 @@ const MobileUserLinks = ({ setIsOpen }: MobileUserLinksProps) => {
     { name: "Home", href: "/" },
     { name: "All Doctors", href: "/all-doctors" },
     { name: "About us", href: "/about-us" },
-    { name: "Contact us", href: "/contact-us" },
+    // { name: "Contact us", href: "/contact-us" },
   ];
 
   if (session?.user?.role === "admin")

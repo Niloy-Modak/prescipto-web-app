@@ -1,5 +1,10 @@
 import AllDocComponent from "@/components/pages/AllDoctor/AllDocComponent";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Perscripto | All Doctors Page",
+  description: "All available doctor information for booking",
+};
 
 const AllDoctorPage = () => {
   return (

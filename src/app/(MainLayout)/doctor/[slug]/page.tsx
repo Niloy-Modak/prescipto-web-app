@@ -1,9 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { doctors } from "@/lib/textConstants"; // Ensure this contains the 10 doctors we seeded
 import {
-  Calendar,
   MapPin,
   Briefcase,
   GraduationCap,
@@ -14,6 +12,33 @@ import { DoctorType } from "@/lib/doctorType";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps) {
+  const { slug } = await params;
+
+  // You named this 'res'
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/doctor/${slug}`,
+    { next: { tags: ["doctors"] } },
+  );
+
+  if (!res.ok) {
+    // Note: Instead of throwing here, returning a generic title
+    // often prevents the whole app from crashing if one slug is bad.
+    return { title: "Doctor Not Found" };
+  }
+
+  // Changed 'response' to 'res' to match the fetch above
+  const data: { doctor: DoctorType } = await res.json();
+  const doctor = data.doctor;
+
+  if (!doctor) return { title: "Doctor Not Found" };
+
+  return {
+    title: `${doctor.name} | ${doctor.title}`,
+    description: doctor.bio,
+  };
 }
 
 const DoctorDetailPage = async ({ params }: PageProps) => {
@@ -33,7 +58,6 @@ const DoctorDetailPage = async ({ params }: PageProps) => {
   const data: { doctor: DoctorType } = await response.json();
   const doctor = data.doctor;
 
-  
   if (!doctor) {
     notFound();
   }
@@ -122,7 +146,11 @@ const DoctorDetailPage = async ({ params }: PageProps) => {
             </div>
           </div>
 
-          <BookingSection doctorName={doctor.name} slug={doctor.slug} availability={doctor.availability} />
+          <BookingSection
+            doctorName={doctor.name}
+            slug={doctor.slug}
+            availability={doctor.availability}
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Work Experience */}

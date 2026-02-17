@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Banner = () => {
@@ -20,9 +21,9 @@ const Banner = () => {
             Approach Make Us A Leader In The Healthcare Industry.
           </p>
 
-          <button className="bg-[#008080] text-white px-8 py-3 rounded-lg text-xl font-medium hover:bg-[#006666] transition-all">
+          <Link href={"/all-doctors"} className=" bg-[#008080] text-white px-8 py-3 rounded-lg text-xl font-medium hover:bg-[#006666] transition-all">
             Appointments
-          </button>
+          </Link>
         </div>
 
         {/* Right Content (Image) */}

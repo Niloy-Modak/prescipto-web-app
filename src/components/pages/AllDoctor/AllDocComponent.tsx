@@ -58,7 +58,7 @@ const AllDocPage = () => {
   }, [fetchDoctors]);
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-screen ">
+    <section className="">
       <header className="mb-8 text-center">
         <h1 className="text-4xl font-semibold text-primary tracking-tight">
           Find a Specialist
@@ -107,12 +107,28 @@ const AllDocPage = () => {
           </button>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div
+          className="
+                      grid grid-cols-1
+                      sm:grid-cols-2
+                      md:grid-cols-3
+                      lg:grid-cols-4
+                      gap-8
+                      auto-rows-fr"
+        >
           {loading ? (
             Array.from({ length: 8 }).map((_, i) => <SkeletonCard key={i} />)
           ) : doctors.length > 0 ? (
             doctors.map((doctor) => (
-              <DoctorCard key={doctor.slug} {...doctor} />
+              <DoctorCard
+                key={doctor.slug}
+                slug={doctor.slug}
+                name={doctor.name}
+                title={doctor.title}
+                doctorImage={doctor.doctorImage}
+                activeStatus={doctor.activeStatus}
+                specializations={doctor.specializations}
+              />
             ))
           ) : (
             <div className="col-span-full py-20 text-center">

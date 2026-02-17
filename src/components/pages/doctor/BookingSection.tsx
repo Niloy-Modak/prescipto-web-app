@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
 import { X, Phone, User, Mail, MessageSquare, ChevronDown } from "lucide-react";
+import Link from "next/link";
 
 interface Slot {
   time: string;
@@ -98,7 +99,7 @@ export default function BookingSection({
     setDescribeProblem("");
     setSelectedTime(null);
   };
-  
+
   return (
     <>
       {/* BOOKING SECTION */}
@@ -157,14 +158,23 @@ export default function BookingSection({
           })}
         </div>
 
-        {selectedTime && (
-          <button
-            onClick={() => setOpenModal(true)}
-            className="mt-8 w-full md:w-auto px-10 py-3 bg-primary text-white rounded-full font-bold hover:bg-primary-hover transition-all shadow-lg shadow-blue-100"
-          >
-            Book Appointment for {selectedTime}
-          </button>
-        )}
+        {selectedTime &&
+          (session ? (
+            // User is logged in → show "Book Appointment" button
+            <button
+              onClick={() => setOpenModal(true)}
+              className="mt-8 w-full md:w-auto px-10 py-3 bg-primary text-white rounded-full font-bold hover:bg-primary-hover transition-all shadow-lg shadow-blue-100"
+            >
+              Book Appointment for {selectedTime}
+            </button>
+          ) : (
+            // User is not logged in → show "Sign In" button
+            <Link href={"/sign-in"}>
+              <button className="mt-8 w-full md:w-auto px-10 py-3 bg-primary text-white rounded-full font-bold hover:bg-primary-hover transition-all cursor-pointer shadow-lg shadow-blue-100">
+                Sign in to Book
+              </button>
+            </Link>
+          ))}
       </div>
 
       {/* MODAL */}

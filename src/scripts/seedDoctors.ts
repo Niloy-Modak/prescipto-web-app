@@ -21,7 +21,7 @@ async function seedAndVerify() {
 
     // 1. Connect to MongoDB
     await mongoose.connect(MONGODB_URI);
-    console.log("✅ Connected to MongoDB.");
+    console.log(" Connected to MongoDB.");
 
     // 2. Clear existing Doctors
     await Doctor.deleteMany({});

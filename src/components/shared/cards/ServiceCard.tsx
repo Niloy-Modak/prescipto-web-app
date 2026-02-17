@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 
 type ServiceCardProps = {
   title: string;
@@ -47,7 +47,7 @@ const ServiceCard = ({ title, description, image }: ServiceCardProps) => {
           </p>
         </div>
 
-        <Link
+        {/* <Link
           href="/"
           className="
             mt-4 inline-flex items-center gap-2
@@ -56,7 +56,7 @@ const ServiceCard = ({ title, description, image }: ServiceCardProps) => {
           "
         >
           Learn more <span>→</span>
-        </Link>
+        </Link> */}
       </div>
     </article>
   );

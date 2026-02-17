@@ -4,7 +4,7 @@ import Link from "next/link";
 type DoctorCardProps = {
   slug: string;
   name: string;
-  title: string;
+  title: string | undefined;
   doctorImage: string;
   specializations: string[];
   activeStatus: boolean;
@@ -22,14 +22,11 @@ const DoctorCard = ({
     <>
       <Link href={`/doctor/${slug}`}>
         <div
-          className=" w-full max-w-sm cursor-pointer
-        flex flex-col h-full rounded-2xl overflow-hidden
-        bg-porcelain/40 backdrop-blur-md
-        border border-porcelain/20
-        shadow-[0_4px_30px_rgba(0,0,0,0.1)]
-        transition-all duration-300
-        hover:shadow-[0_10px_40px_rgba(0,0,0,0.15)]
-        hover:-translate-y-1
+          className=" w-full cursor-pointer flex flex-col h-full rounded-2xl overflow-hidden
+ bg-porcelain/40 backdrop-blur-md border border-porcelain/20
+ shadow-[0_4px_30px_rgba(0,0,0,0.1)]
+ transition-all duration-300 hover:shadow-[0_10px_40px_rgba(0,0,0,0.15)]
+ hover:-translate-y-1
       "
         >
           {/* Image */}

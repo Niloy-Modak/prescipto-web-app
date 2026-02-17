@@ -1,8 +1,12 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 const AppointmentSection = () => {
+  const { data: session } = useSession();
+
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  py-10 md:relative">
       {/* Container with relative positioning to allow image to pop out */}
@@ -17,21 +21,41 @@ const AppointmentSection = () => {
             With 100+ Trusted Doctors
           </p>
 
-          <Link
-            href="/register"
-            className="
-              inline-block mt-6
-              bg-white text-primary
-              px-6 py-3
-              rounded-full
-              font-medium
-              shadow-sm
-              hover:shadow-md
-              transition
-            "
-          >
-            Create account
-          </Link>
+          <div>
+            {session ? (
+              <Link
+                href="/all-doctors"
+                className="
+      inline-block mt-6
+      bg-white text-primary
+      px-6 py-3
+      rounded-full
+      font-medium
+      shadow-sm
+      hover:shadow-md
+      transition
+    "
+              >
+                Book Appointment
+              </Link>
+            ) : (
+              <Link
+                href="/sign-up"
+                className="
+      inline-block mt-6
+      bg-white text-primary
+      px-6 py-3
+      rounded-full
+      font-medium
+      shadow-sm
+      hover:shadow-md
+      transition
+    "
+              >
+                Create account
+              </Link>
+            )}
+          </div>
         </div>
 
         {/* Right Image - Positioned to overflow the container */}
