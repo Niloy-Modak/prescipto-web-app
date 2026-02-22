@@ -52,9 +52,7 @@ Follow these precise steps to get your local environment ready:
    NEXTAUTH_SECRET
    CLOUDINARY_URL
 
-5. **Run in client side:**
+5. **Run the Project:**
    ```bash
    npm run dev
-6. **Run in server side:**
-   ```bash
-   nodemon index.js
+
