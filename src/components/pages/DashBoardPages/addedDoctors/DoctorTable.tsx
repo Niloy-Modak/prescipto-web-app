@@ -6,6 +6,7 @@ import { Edit, Trash2, User, Activity, DollarSign, X } from "lucide-react";
 import UpdateDoctorForm from "../updateDoctor/UpdateDoctorForm";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface Doctor {
   slug: string;
@@ -145,21 +146,26 @@ const DoctorTable = () => {
                     <td className="px-2 md:px-8 py-5">
                       <div className="flex items-center gap-4">
                         <div className="relative w-12 h-12 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shadow-sm">
-                          {doctor.doctorImage ? (
-                            <Image
-                              src={doctor.doctorImage}
-                              alt={doctor.name}
-                              fill
-                              className="object-cover"
-                            />
-                          ) : (
-                            <User className="w-full h-full p-2 text-slate-300" />
-                          )}
+                          <Link href={`/doctor/${doctor.slug}`}>
+                            {doctor.doctorImage ? (
+                              <Image
+                                src={doctor.doctorImage}
+                                alt={doctor.name}
+                                fill
+                                className="object-cover"
+                              />
+                            ) : (
+                              <User className="w-full h-full p-2 text-slate-300" />
+                            )}
+                          </Link>
                         </div>
                         <div>
+                          <Link href={`/doctor/${doctor.slug}`}>
                           <p className="font-bold text-slate-800 text-base">
                             {doctor.name}
                           </p>
+                          </Link>
+        
                           <p className="text-xs font-medium text-slate-400">
                             {doctor.title}
                           </p>

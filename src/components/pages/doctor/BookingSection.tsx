@@ -124,7 +124,7 @@ export default function BookingSection({
                 className={`shrink-0 w-16 h-24 rounded-full flex flex-col items-center justify-center transition-all border ${
                   isActive
                     ? "bg-primary border-primary text-white shadow-lg shadow-blue-200"
-                    : "bg-white border-slate-200 text-slate-600 hover:border-primary"
+                    : "bg-white border-slate-200 text-slate-600 hover:border-primary cursor-pointer"
                 }`}
               >
                 <span className="text-xs font-bold mb-1">{dayName}</span>
@@ -146,10 +146,10 @@ export default function BookingSection({
                 onClick={() => setSelectedTime(slot.time)}
                 className={`px-6 py-2.5 rounded-full text-sm font-medium border transition-all ${
                   slot.isBooked
-                    ? "bg-slate-50 border-slate-100 text-slate-300 cursor-not-allowed"
+                    ? "bg-slate-50 border-slate-100 text-slate-300 cursor-not-allowed "
                     : isSelected
                       ? "bg-primary border-primary text-white shadow-md"
-                      : "bg-white border-slate-200 text-slate-600 hover:border-primary hover:text-primary"
+                      : "bg-white border-slate-200 text-slate-600 hover:border-primary hover:text-primary cursor-pointer"
                 }`}
               >
                 {slot.time}
@@ -163,14 +163,14 @@ export default function BookingSection({
             // User is logged in → show "Book Appointment" button
             <button
               onClick={() => setOpenModal(true)}
-              className="mt-8 w-full md:w-auto px-10 py-3 bg-primary text-white rounded-full font-bold hover:bg-primary-hover transition-all shadow-lg shadow-blue-100"
+              className="mt-8 w-full md:w-auto px-10 py-3 bg-primary text-white rounded-full font-bold hover:bg-primary-hover transition-all shadow-lg shadow-blue-100 cursor-pointer"
             >
               Book Appointment for {selectedTime}
             </button>
           ) : (
             // User is not logged in → show "Sign In" button
             <Link href={"/sign-in"}>
-              <button className="mt-8 w-full md:w-auto px-10 py-3 bg-primary text-white rounded-full font-bold hover:bg-primary-hover transition-all cursor-pointer shadow-lg shadow-blue-100">
+              <button className="mt-8 w-full md:w-auto px-10 py-3 bg-primary text-white rounded-full font-bold hover:bg-primary-hover transition-all cursor-pointer shadow-lg shadow-blue-100 ">
                 Sign in to Book
               </button>
             </Link>
